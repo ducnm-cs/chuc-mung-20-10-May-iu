@@ -79,62 +79,182 @@
 
     .cloud-drift {
       position: absolute;
-      opacity: 0.65;
-      filter: drop-shadow(0 8px 16px var(--cloud-shadow));
+      opacity: 0.7;
+      filter: drop-shadow(0 8px 18px var(--cloud-shadow));
       animation: drift linear infinite;
     }
 
+    .cloud-drift-reverse {
+      position: absolute;
+      opacity: 0.65;
+      filter: drop-shadow(0 8px 18px var(--cloud-shadow));
+      animation: driftReverse linear infinite;
+    }
+
     .cloud-1 {
-      top: 6%;
+      top: 4%;
       left: -200px;
-      width: 180px;
-      animation-duration: 38s;
+      width: 190px;
+      animation-duration: 34s;
       animation-delay: 0s;
     }
 
     .cloud-2 {
-      top: 25%;
-      left: -250px;
-      width: 240px;
-      animation-duration: 48s;
-      animation-delay: 12s;
-      opacity: 0.5;
-    }
-
-    .cloud-3 {
-      top: 60%;
-      left: -180px;
-      width: 160px;
-      animation-duration: 32s;
-      animation-delay: 5s;
+      top: 16%;
+      left: -260px;
+      width: 260px;
+      animation-duration: 46s;
+      animation-delay: 8s;
       opacity: 0.55;
     }
 
+    .cloud-3 {
+      top: 28%;
+      right: -240px;
+      width: 220px;
+      animation-duration: 40s;
+      animation-delay: 2s;
+      opacity: 0.6;
+    }
+
     .cloud-4 {
-      top: 80%;
-      left: -220px;
-      width: 200px;
-      animation-duration: 44s;
-      animation-delay: 20s;
+      top: 42%;
+      left: -240px;
+      width: 280px;
+      animation-duration: 52s;
+      animation-delay: 18s;
       opacity: 0.45;
     }
 
     .cloud-5 {
-      top: 15%;
-      left: -190px;
-      width: 170px;
-      animation-duration: 52s;
-      animation-delay: 26s;
-      opacity: 0.4;
+      top: 56%;
+      right: -250px;
+      width: 230px;
+      animation-duration: 38s;
+      animation-delay: 12s;
+      opacity: 0.55;
     }
 
     .cloud-6 {
-      top: 45%;
-      left: -210px;
-      width: 210px;
-      animation-duration: 40s;
-      animation-delay: 15s;
-      opacity: 0.35;
+      top: 70%;
+      left: -200px;
+      width: 200px;
+      animation-duration: 36s;
+      animation-delay: 5s;
+      opacity: 0.5;
+    }
+
+    .cloud-7 {
+      top: 84%;
+      right: -220px;
+      width: 240px;
+      animation-duration: 44s;
+      animation-delay: 22s;
+      opacity: 0.5;
+    }
+
+    .cloud-8 {
+      top: 10%;
+      right: -180px;
+      width: 150px;
+      animation-duration: 28s;
+      animation-delay: 14s;
+      opacity: 0.65;
+    }
+
+    @keyframes drift {
+      from { transform: translateX(-300px); }
+      to { transform: translateX(calc(100vw + 350px)); }
+    }
+
+    @keyframes driftReverse {
+      from { transform: translateX(calc(100vw + 350px)); }
+      to { transform: translateX(-300px); }
+    }
+
+    /* Dải mây bồng bềnh dưới chân trang */
+    .bottom-cloud-bed {
+      position: fixed;
+      bottom: -10px;
+      left: 0;
+      width: 100%;
+      height: 75px;
+      pointer-events: none;
+      z-index: 2;
+      animation: floatCloudBed 6s ease-in-out infinite;
+      filter: drop-shadow(0 -4px 12px rgba(224, 242, 254, 0.7));
+    }
+
+    @keyframes floatCloudBed {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-7px); }
+    }
+
+    /* Cụm hoa nở rộ ở 2 góc màn hình */
+    .corner-garden {
+      position: fixed;
+      bottom: 0;
+      pointer-events: none;
+      z-index: 4;
+      filter: drop-shadow(0 6px 14px rgba(244, 114, 182, 0.3));
+    }
+
+    .corner-garden-left {
+      left: 0;
+      width: 135px;
+      transform-origin: bottom left;
+      animation: gardenSwayLeft 5.5s ease-in-out infinite;
+    }
+
+    .corner-garden-right {
+      right: 0;
+      width: 135px;
+      transform-origin: bottom right;
+      animation: gardenSwayRight 6s ease-in-out infinite;
+    }
+
+    @keyframes gardenSwayLeft {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(2.5deg) scale(1.02); }
+    }
+
+    @keyframes gardenSwayRight {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(-2.5deg) scale(1.02); }
+    }
+
+    /* Cụm hoa trang trí góc trên màn hình */
+    .top-garden {
+      position: fixed;
+      top: 36px;
+      pointer-events: none;
+      z-index: 4;
+      opacity: 0.88;
+      filter: drop-shadow(0 4px 10px rgba(56, 189, 248, 0.2));
+    }
+
+    .top-garden-left {
+      left: -8px;
+      width: 95px;
+      transform-origin: top left;
+      animation: topSwayLeft 7s ease-in-out infinite;
+    }
+
+    .top-garden-right {
+      right: -8px;
+      width: 95px;
+      transform-origin: top right;
+      animation: topSwayRight 7.5s ease-in-out infinite;
+    }
+
+    @keyframes topSwayLeft {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(-3deg); }
+    }
+
+    @keyframes topSwayRight {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(3deg); }
     }
 
     /* Tùy chỉnh thanh cuộn đẹp mắt cho desktop */
@@ -150,11 +270,6 @@
     }
     ::-webkit-scrollbar-thumb:hover {
       background: #FB7185;
-    }
-
-    @keyframes drift {
-      from { transform: translateX(-260px); }
-      to { transform: translateX(calc(100vw + 300px)); }
     }
 
     /* Thanh Status Bar vui nhộn trên cùng phong cách lập trình viên */
@@ -1167,6 +1282,22 @@
         border-right-width: 160px;
         border-bottom-width: 105px;
       }
+
+      .corner-garden-left {
+        width: 220px;
+      }
+      .corner-garden-right {
+        width: 220px;
+      }
+      .top-garden-left {
+        width: 150px;
+      }
+      .top-garden-right {
+        width: 150px;
+      }
+      .bottom-cloud-bed {
+        height: 95px;
+      }
     }
 
     /* Responsive tinh chỉnh cho các cỡ màn hình nhỏ (Mobile) */
@@ -1202,19 +1333,191 @@
   <!-- Canvas cánh hoa rơi nhè nhẹ -->
   <canvas id="petals-canvas"></canvas>
 
-  <!-- Những đám mây trôi lãng đãng -->
+  <!-- Những đám mây trôi lãng đãng đa tầng -->
   <div class="bg-clouds">
-    <!-- Cloud 1 -->
+    <!-- Cloud 1: Mây lớn bồng bềnh -->
     <svg class="cloud-drift cloud-1" viewBox="0 0 100 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M25 45H75C83.2843 45 90 38.2843 90 30C90 21.7157 83.2843 15 75 15C74.3496 15 73.7093 15.0416 73.0815 15.1227C70.6277 8.67503 64.3995 4 57 4C47.8863 4 40.3541 10.7435 39.1415 19.5786C37.476 18.5583 35.5229 18 33.4286 18C26.0121 18 20 24.0121 20 31.4286C20 32.2281 20.07 33.0113 20.2039 33.7719C14.4925 34.6934 10 39.6385 10 45.6C10 52.4483 15.5517 58 22.4 58H75" fill="white" fill-opacity="0.9"/>
+      <path d="M25 45H75C83.2843 45 90 38.2843 90 30C90 21.7157 83.2843 15 75 15C74.3496 15 73.7093 15.0416 73.0815 15.1227C70.6277 8.67503 64.3995 4 57 4C47.8863 4 40.3541 10.7435 39.1415 19.5786C37.476 18.5583 35.5229 18 33.4286 18C26.0121 18 20 24.0121 20 31.4286C20 32.2281 20.07 33.0113 20.2039 33.7719C14.4925 34.6934 10 39.6385 10 45.6C10 52.4483 15.5517 58 22.4 58H75" fill="white" fill-opacity="0.92"/>
     </svg>
-    <!-- Cloud 2 -->
+    <!-- Cloud 2: Mây mềm mại bay tầng cao -->
     <svg class="cloud-drift cloud-2" viewBox="0 0 100 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 40H80C88 40 94 34 94 26C94 18 88 12 80 12C79.4 12 78.8 12.1 78.2 12.2C75.8 6.5 70 2 63 2C54.5 2 47.5 8 46.2 16C44.7 15 42.8 14.5 40.8 14.5C33.8 14.5 28 20.2 28 27.2C28 28 28.1 28.7 28.2 29.4C22.8 30.3 18.5 35 18.5 40.6C18.5 47 23.7 52 30.2 52H80" fill="white" fill-opacity="0.85"/>
+    </svg>
+    <!-- Cloud 3: Mây bay ngược chiều nhẹ nhàng -->
+    <svg class="cloud-drift-reverse cloud-3" viewBox="0 0 100 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M25 45H75C83.2843 45 90 38.2843 90 30C90 21.7157 83.2843 15 75 15C74.3496 15 73.7093 15.0416 73.0815 15.1227C70.6277 8.67503 64.3995 4 57 4C47.8863 4 40.3541 10.7435 39.1415 19.5786C37.476 18.5583 35.5229 18 33.4286 18C26.0121 18 20 24.0121 20 31.4286C20 32.2281 20.07 33.0113 20.2039 33.7719C14.4925 34.6934 10 39.6385 10 45.6C10 52.4483 15.5517 58 22.4 58H75" fill="white" fill-opacity="0.88"/>
+    </svg>
+    <!-- Cloud 4: Mây xốp tầng trung -->
+    <svg class="cloud-drift cloud-4" viewBox="0 0 100 60" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M20 40H80C88 40 94 34 94 26C94 18 88 12 80 12C79.4 12 78.8 12.1 78.2 12.2C75.8 6.5 70 2 63 2C54.5 2 47.5 8 46.2 16C44.7 15 42.8 14.5 40.8 14.5C33.8 14.5 28 20.2 28 27.2C28 28 28.1 28.7 28.2 29.4C22.8 30.3 18.5 35 18.5 40.6C18.5 47 23.7 52 30.2 52H80" fill="white" fill-opacity="0.8"/>
     </svg>
-    <!-- Cloud 3 -->
-    <svg class="cloud-drift cloud-3" viewBox="0 0 100 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M25 45H75C83.2843 45 90 38.2843 90 30C90 21.7157 83.2843 15 75 15C74.3496 15 73.7093 15.0416 73.0815 15.1227C70.6277 8.67503 64.3995 4 57 4C47.8863 4 40.3541 10.7435 39.1415 19.5786C37.476 18.5583 35.5229 18 33.4286 18C26.0121 18 20 24.0121 20 31.4286C20 32.2281 20.07 33.0113 20.2039 33.7719C14.4925 34.6934 10 39.6385 10 45.6C10 52.4483 15.5517 58 22.4 58H75" fill="white" fill-opacity="0.85"/>
+    <!-- Cloud 5: Cục Mây cute có má hồng & kẹp hoa tulip bay lơ lửng -->
+    <svg class="cloud-drift-reverse cloud-5" viewBox="0 0 100 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M25 45H75C83.3 45 90 38.3 90 30C90 21.7 83.3 15 75 15C74.3 15 73.7 15 73.1 15.1C70.6 8.7 64.4 4 57 4C47.9 4 40.4 10.7 39.1 19.6C37.5 18.6 35.5 18 33.4 18C26 18 20 24 20 31.4C20 32.2 20.1 33 20.2 33.8C14.5 34.7 10 39.6 10 45.6C10 52.4 15.6 58 22.4 58H75" fill="white" fill-opacity="0.95"/>
+      <!-- Mắt cười -->
+      <path d="M42 32C44 29 48 29 50 32" stroke="#475569" stroke-width="2" stroke-linecap="round"/>
+      <path d="M62 32C64 29 68 29 70 32" stroke="#475569" stroke-width="2" stroke-linecap="round"/>
+      <!-- Miệng cười -->
+      <path d="M53 36C55 38 57 38 59 36" stroke="#475569" stroke-width="1.8" stroke-linecap="round"/>
+      <!-- Má hồng -->
+      <circle cx="43" cy="36" r="3" fill="#F472B6" opacity="0.6"/>
+      <circle cx="69" cy="36" r="3" fill="#F472B6" opacity="0.6"/>
+      <!-- Hoa nhỏ cài đầu -->
+      <circle cx="73" cy="20" r="4.5" fill="#FB7185"/>
+      <circle cx="73" cy="20" r="2" fill="#FDE047"/>
+    </svg>
+    <!-- Cloud 6: Mây trắng tinh khôi -->
+    <svg class="cloud-drift cloud-6" viewBox="0 0 100 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M25 45H75C83.3 45 90 38.3 90 30C90 21.7 83.3 15 75 15C74.3 15 73.7 15 73.1 15.1C70.6 8.7 64.4 4 57 4C47.9 4 40.4 10.7 39.1 19.6C37.5 18.6 35.5 18 33.4 18C26 18 20 24 20 31.4C20 32.2 20.1 33 20.2 33.8C14.5 34.7 10 39.6 10 45.6C10 52.4 15.6 58 22.4 58H75" fill="white" fill-opacity="0.86"/>
+    </svg>
+    <!-- Cloud 7: Dải mây lãng mạn phía dưới -->
+    <svg class="cloud-drift-reverse cloud-7" viewBox="0 0 100 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 40H80C88 40 94 34 94 26C94 18 88 12 80 12C79.4 12 78.8 12.1 78.2 12.2C75.8 6.5 70 2 63 2C54.5 2 47.5 8 46.2 16C44.7 15 42.8 14.5 40.8 14.5C33.8 14.5 28 20.2 28 27.2C28 28 28.1 28.7 28.2 29.4C22.8 30.3 18.5 35 18.5 40.6C18.5 47 23.7 52 30.2 52H80" fill="white" fill-opacity="0.82"/>
+    </svg>
+    <!-- Cloud 8: Mây nhỏ lướt nhanh -->
+    <svg class="cloud-drift-reverse cloud-8" viewBox="0 0 100 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M25 45H75C83.3 45 90 38.3 90 30C90 21.7 83.3 15 75 15C74.3 15 73.7 15 73.1 15.1C70.6 8.7 64.4 4 57 4C47.9 4 40.4 10.7 39.1 19.6C37.5 18.6 35.5 18 33.4 18C26 18 20 24 20 31.4C20 32.2 20.1 33 20.2 33.8C14.5 34.7 10 39.6 10 45.6C10 52.4 15.6 58 22.4 58H75" fill="white" fill-opacity="0.9"/>
+    </svg>
+  </div>
+
+  <!-- Dải mây bồng bềnh dưới đáy màn hình (Bottom Cloud Bed) -->
+  <div class="bottom-cloud-bed">
+    <svg viewBox="0 0 1440 120" fill="none" preserveAspectRatio="none" style="width: 100%; height: 100%;">
+      <!-- Layer 1: Xanh mộng mơ phía sau -->
+      <path d="M0 50 C120 30 220 45 320 25 C420 5 520 35 620 18 C720 2 820 28 920 12 C1020 -2 1120 25 1220 10 C1320 -5 1380 20 1440 15 L1440 120 L0 120 Z" fill="#BAE6FD" fill-opacity="0.5"/>
+      <!-- Layer 2: Hồng pastel phấn hoa -->
+      <path d="M0 65 C140 45 240 58 360 42 C480 25 580 48 700 32 C820 18 920 42 1040 28 C1160 15 1260 38 1380 25 C1410 22 1430 28 1440 30 L1440 120 L0 120 Z" fill="#FCE7F3" fill-opacity="0.75"/>
+      <!-- Layer 3: Mây trắng tinh khôi gợn sóng bồng bềnh -->
+      <path d="M0 80 C80 65 160 70 240 60 C320 50 400 65 480 52 C560 40 640 55 720 45 C800 35 880 50 960 40 C1040 30 1120 45 1200 35 C1280 25 1360 40 1440 32 L1440 120 L0 120 Z" fill="#FFFFFF" fill-opacity="0.92"/>
+    </svg>
+  </div>
+
+  <!-- Cụm hoa góc dưới bên trái (Tulip, Cúc họa mi, Lá xanh) -->
+  <div class="corner-garden corner-garden-left">
+    <svg viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto;">
+      <!-- Lá xanh mướt -->
+      <path d="M20 220 C25 160 45 120 70 95 C60 125 50 170 40 220" fill="#86EFAC" fill-opacity="0.85"/>
+      <path d="M10 220 C15 170 30 140 50 115 C45 145 35 180 25 220" fill="#BBF7D0" fill-opacity="0.8"/>
+      <path d="M50 220 C70 170 110 135 135 120 C110 150 85 185 65 220" fill="#86EFAC" fill-opacity="0.85"/>
+      
+      <!-- Cành hoa -->
+      <path d="M30 220 Q55 150 75 80" stroke="#4ADE80" stroke-width="4" stroke-linecap="round"/>
+      <path d="M60 220 Q95 160 115 90" stroke="#4ADE80" stroke-width="3.5" stroke-linecap="round"/>
+      <path d="M15 220 Q35 170 45 125" stroke="#4ADE80" stroke-width="3" stroke-linecap="round"/>
+
+      <!-- Bông hoa Tulip hồng 1 (lớn) -->
+      <g transform="translate(60, 45)">
+        <!-- Cánh trái -->
+        <path d="M15 40 C5 30 0 15 10 5 C18 18 20 30 15 40 Z" fill="#F472B6"/>
+        <!-- Cánh phải -->
+        <path d="M15 40 C25 30 30 15 20 5 C12 18 10 30 15 40 Z" fill="#FB7185"/>
+        <!-- Cánh giữa -->
+        <path d="M15 40 C8 22 8 8 15 0 C22 8 22 22 15 40 Z" fill="#FDA4AF"/>
+      </g>
+
+      <!-- Bông hoa Cúc họa mi trắng nhụy vàng (giữa) -->
+      <g transform="translate(105, 80)">
+        <!-- 8 cánh cúc -->
+        <ellipse cx="0" cy="-14" rx="4.5" ry="9" fill="#FFFFFF"/>
+        <ellipse cx="10" cy="-10" rx="4.5" ry="9" transform="rotate(45 10 -10)" fill="#FFFFFF"/>
+        <ellipse cx="14" cy="0" rx="4.5" ry="9" transform="rotate(90 14 0)" fill="#FFFFFF"/>
+        <ellipse cx="10" cy="10" rx="4.5" ry="9" transform="rotate(135 10 10)" fill="#FFFFFF"/>
+        <ellipse cx="0" cy="14" rx="4.5" ry="9" fill="#FFFFFF"/>
+        <ellipse cx="-10" cy="10" rx="4.5" ry="9" transform="rotate(225 -10 10)" fill="#FFFFFF"/>
+        <ellipse cx="-14" cy="0" rx="4.5" ry="9" transform="rotate(270 -14 0)" fill="#FFFFFF"/>
+        <ellipse cx="-10" cy="-10" rx="4.5" ry="9" transform="rotate(315 -10 -10)" fill="#FFFFFF"/>
+        <!-- Nhụy vàng rực rỡ -->
+        <circle cx="0" cy="0" r="7" fill="#FBBF24"/>
+        <circle cx="-1.5" cy="-1.5" r="2" fill="#FDE047"/>
+      </g>
+
+      <!-- Nụ hoa tulip nhỏ hồng phớt -->
+      <g transform="translate(35, 105)">
+        <path d="M10 25 C4 18 2 8 8 2 C13 10 14 18 10 25 Z" fill="#F472B6"/>
+        <path d="M10 25 C16 18 18 8 12 2 C7 10 6 18 10 25 Z" fill="#FB7185"/>
+      </g>
+
+      <!-- Đám mây nhỏ ôm chân gốc hoa -->
+      <path d="M-10 225 Q15 195 45 205 Q75 190 105 210 Q130 195 150 225 Z" fill="#FFFFFF" fill-opacity="0.95"/>
+    </svg>
+  </div>
+
+  <!-- Cụm hoa góc dưới bên phải (Tulip đỏ hồng, Cúc trắng, Lá cẩm tú cầu) -->
+  <div class="corner-garden corner-garden-right">
+    <svg viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto;">
+      <!-- Lá xanh mướt -->
+      <path d="M180 220 C175 160 155 120 130 95 C140 125 150 170 160 220" fill="#86EFAC" fill-opacity="0.85"/>
+      <path d="M190 220 C185 170 170 140 150 115 C155 145 165 180 175 220" fill="#BBF7D0" fill-opacity="0.8"/>
+      <path d="M150 220 C130 170 90 135 65 120 C90 150 115 185 135 220" fill="#86EFAC" fill-opacity="0.85"/>
+      
+      <!-- Cành hoa -->
+      <path d="M170 220 Q145 150 125 80" stroke="#4ADE80" stroke-width="4" stroke-linecap="round"/>
+      <path d="M140 220 Q105 160 85 90" stroke="#4ADE80" stroke-width="3.5" stroke-linecap="round"/>
+      <path d="M185 220 Q165 170 155 125" stroke="#4ADE80" stroke-width="3" stroke-linecap="round"/>
+
+      <!-- Bông hoa Tulip màu đào rực rỡ -->
+      <g transform="translate(110, 45)">
+        <path d="M15 40 C5 30 0 15 10 5 C18 18 20 30 15 40 Z" fill="#FB7185"/>
+        <path d="M15 40 C25 30 30 15 20 5 C12 18 10 30 15 40 Z" fill="#F43F5E"/>
+        <path d="M15 40 C8 22 8 8 15 0 C22 8 22 22 15 40 Z" fill="#FDA4AF"/>
+      </g>
+
+      <!-- Bông hoa Cúc họa mi trắng xinh (phải) -->
+      <g transform="translate(85, 80)">
+        <ellipse cx="0" cy="-14" rx="4.5" ry="9" fill="#FFFFFF"/>
+        <ellipse cx="10" cy="-10" rx="4.5" ry="9" transform="rotate(45 10 -10)" fill="#FFFFFF"/>
+        <ellipse cx="14" cy="0" rx="4.5" ry="9" transform="rotate(90 14 0)" fill="#FFFFFF"/>
+        <ellipse cx="10" cy="10" rx="4.5" ry="9" transform="rotate(135 10 10)" fill="#FFFFFF"/>
+        <ellipse cx="0" cy="14" rx="4.5" ry="9" fill="#FFFFFF"/>
+        <ellipse cx="-10" cy="10" rx="4.5" ry="9" transform="rotate(225 -10 10)" fill="#FFFFFF"/>
+        <ellipse cx="-14" cy="0" rx="4.5" ry="9" transform="rotate(270 -14 0)" fill="#FFFFFF"/>
+        <ellipse cx="-10" cy="-10" rx="4.5" ry="9" transform="rotate(315 -10 -10)" fill="#FFFFFF"/>
+        <circle cx="0" cy="0" r="7" fill="#FBBF24"/>
+        <circle cx="1.5" cy="-1.5" r="2" fill="#FDE047"/>
+      </g>
+
+      <!-- Nụ hoa đào xinh -->
+      <g transform="translate(145, 105)">
+        <path d="M10 25 C4 18 2 8 8 2 C13 10 14 18 10 25 Z" fill="#F472B6"/>
+        <path d="M10 25 C16 18 18 8 12 2 C7 10 6 18 10 25 Z" fill="#FB7185"/>
+      </g>
+
+      <!-- Đám mây nhỏ ôm chân gốc hoa -->
+      <path d="M50 225 Q75 195 105 205 Q135 190 165 210 Q190 195 215 225 Z" fill="#FFFFFF" fill-opacity="0.95"/>
+    </svg>
+  </div>
+
+  <!-- Cành hoa buông rủ góc trên bên trái -->
+  <div class="top-garden top-garden-left">
+    <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto;">
+      <path d="M0 0 Q40 20 80 15 Q60 50 30 70" stroke="#86EFAC" stroke-width="2.5" fill="none"/>
+      <!-- Hoa đào nhỏ nở -->
+      <circle cx="45" cy="22" r="7" fill="#FDA4AF"/>
+      <circle cx="45" cy="22" r="3" fill="#FDE047"/>
+      <circle cx="75" cy="18" r="8" fill="#F472B6"/>
+      <circle cx="75" cy="18" r="3.5" fill="#FEF08A"/>
+      <circle cx="35" cy="65" r="6.5" fill="#FB7185"/>
+      <circle cx="35" cy="65" r="2.5" fill="#FBBF24"/>
+      <!-- Lá nhỏ -->
+      <ellipse cx="25" cy="12" rx="3.5" ry="7" transform="rotate(-30 25 12)" fill="#4ADE80"/>
+      <ellipse cx="60" cy="38" rx="3.5" ry="7" transform="rotate(40 60 38)" fill="#4ADE80"/>
+    </svg>
+  </div>
+
+  <!-- Cành hoa buông rủ góc trên bên phải -->
+  <div class="top-garden top-garden-right">
+    <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto;">
+      <path d="M120 0 Q80 20 40 15 Q60 50 90 70" stroke="#86EFAC" stroke-width="2.5" fill="none"/>
+      <!-- Hoa anh đào nhỏ -->
+      <circle cx="75" cy="22" r="7" fill="#FDA4AF"/>
+      <circle cx="75" cy="22" r="3" fill="#FDE047"/>
+      <circle cx="45" cy="18" r="8" fill="#F472B6"/>
+      <circle cx="45" cy="18" r="3.5" fill="#FEF08A"/>
+      <circle cx="85" cy="65" r="6.5" fill="#FB7185"/>
+      <circle cx="85" cy="65" r="2.5" fill="#FBBF24"/>
+      <!-- Lá nhỏ -->
+      <ellipse cx="95" cy="12" rx="3.5" ry="7" transform="rotate(30 95 12)" fill="#4ADE80"/>
+      <ellipse cx="60" cy="38" rx="3.5" ry="7" transform="rotate(-40 60 38)" fill="#4ADE80"/>
     </svg>
   </div>
 
@@ -1682,45 +1985,48 @@
     }
 
     /* ==========================================================
-       🌸 CANVAS CÁNH HOA & MÂY RƠI BAY NHẸ
+       🌸 CANVAS BẦU TRỜI HOA & MÂY BỒNG BỀNH ĐA SẮC
+       (Hoa anh đào, Cúc họa mi, Cánh tulip, Mây con & Ngôi sao lấp lánh)
        ========================================================== */
     const canvas = document.getElementById('petals-canvas');
     const ctx = canvas.getContext('2d');
     let width = canvas.width = window.innerWidth;
     let height = canvas.height = window.innerHeight;
 
-    window.addEventListener('resize', () => {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    });
+    function getTargetParticleCount() {
+      return window.innerWidth >= 860 ? 70 : 45;
+    }
 
-    const petals = [];
-    const numPetals = 22; // Vừa đủ nhẹ nhàng, không gây rối mắt
+    const particles = [];
 
-    class Petal {
+    // Hạt hiệu ứng: 0: Hoa anh đào, 1: Cúc họa mi, 2: Tulip, 3: Mây con, 4: Sao lấp lánh
+    class FloraParticle {
       constructor() {
-        this.reset();
+        this.reset(true);
       }
-      reset() {
+      reset(initial = false) {
         this.x = Math.random() * width;
-        this.y = Math.random() * -height;
-        this.size = Math.random() * 8 + 7;
-        this.speedY = Math.random() * 1.2 + 0.8;
-        this.speedX = Math.random() * 1 - 0.5;
+        this.y = initial ? Math.random() * height : -30;
+        this.type = Math.floor(Math.random() * 5);
+        this.size = Math.random() * 8 + 8; // 8px đến 16px
+        this.speedY = Math.random() * 1.1 + 0.7;
+        this.speedX = Math.random() * 1.2 - 0.6;
         this.rotation = Math.random() * 360;
-        this.rotSpeed = Math.random() * 2 - 1;
-        this.opacity = Math.random() * 0.5 + 0.35;
-        // Màu hồng hoặc trắng hồng như hoa anh đào / tulip
-        this.color = Math.random() > 0.4 ? '#FBCFE8' : '#FCE7F3';
+        this.rotSpeed = (Math.random() * 2.5 - 1.25);
+        this.opacity = Math.random() * 0.45 + 0.45;
+        this.swayFreq = Math.random() * 0.02 + 0.01;
+        this.phase = Math.random() * Math.PI * 2;
+
+        const pinks = ['#FBCFE8', '#F472B6', '#FDA4AF', '#FCE7F3', '#FB7185'];
+        this.color = pinks[Math.floor(Math.random() * pinks.length)];
       }
       update() {
         this.y += this.speedY;
-        this.x += Math.sin(this.y * 0.01) + this.speedX;
+        this.x += Math.sin(this.y * this.swayFreq + this.phase) * 1.2 + this.speedX;
         this.rotation += this.rotSpeed;
 
-        if (this.y > height + 20) {
-          this.reset();
-          this.y = -20;
+        if (this.y > height + 35) {
+          this.reset(false);
         }
       }
       draw() {
@@ -1728,26 +2034,99 @@
         ctx.translate(this.x, this.y);
         ctx.rotate((this.rotation * Math.PI) / 180);
         ctx.globalAlpha = this.opacity;
-        ctx.fillStyle = this.color;
-        
-        // Vẽ cánh hoa hình oval mềm mại
-        ctx.beginPath();
-        ctx.ellipse(0, 0, this.size, this.size * 0.55, 0, 0, Math.PI * 2);
-        ctx.fill();
+
+        if (this.type === 0) {
+          // 🌸 1. Cánh hoa anh đào (Sakura petal)
+          ctx.fillStyle = this.color;
+          ctx.beginPath();
+          ctx.moveTo(0, -this.size);
+          ctx.bezierCurveTo(this.size * 0.8, -this.size * 0.4, this.size * 0.7, this.size * 0.8, 0, this.size);
+          ctx.bezierCurveTo(-this.size * 0.7, this.size * 0.8, -this.size * 0.8, -this.size * 0.4, 0, -this.size);
+          ctx.fill();
+        } else if (this.type === 1) {
+          // 🌼 2. Bông cúc họa mi mini (Mini Daisy)
+          const s = this.size * 0.7;
+          ctx.fillStyle = '#FFFFFF';
+          for (let a = 0; a < 8; a++) {
+            ctx.save();
+            ctx.rotate((a * Math.PI) / 4);
+            ctx.beginPath();
+            ctx.ellipse(0, s * 0.6, s * 0.25, s * 0.45, 0, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+          }
+          // Nhụy vàng rực rỡ
+          ctx.fillStyle = '#FBBF24';
+          ctx.beginPath();
+          ctx.arc(0, 0, s * 0.35, 0, Math.PI * 2);
+          ctx.fill();
+        } else if (this.type === 2) {
+          // 🌷 3. Cánh hoa tulip hồng mềm
+          ctx.fillStyle = this.color;
+          ctx.beginPath();
+          ctx.ellipse(0, 0, this.size * 0.65, this.size * 1.05, 0, 0, Math.PI * 2);
+          ctx.fill();
+        } else if (this.type === 3) {
+          // ☁️ 4. Đám mây mini trắng bồng bềnh
+          ctx.fillStyle = 'rgba(255, 255, 255, 0.92)';
+          const s = this.size * 0.85;
+          ctx.beginPath();
+          ctx.arc(-s * 0.55, s * 0.1, s * 0.45, 0, Math.PI * 2);
+          ctx.arc(0, -s * 0.2, s * 0.6, 0, Math.PI * 2);
+          ctx.arc(s * 0.55, s * 0.1, s * 0.45, 0, Math.PI * 2);
+          ctx.fill();
+          // Chút má hồng cho mây con
+          ctx.fillStyle = '#F472B6';
+          ctx.globalAlpha = this.opacity * 0.7;
+          ctx.beginPath();
+          ctx.arc(-s * 0.4, s * 0.18, s * 0.12, 0, Math.PI * 2);
+          ctx.arc(s * 0.4, s * 0.18, s * 0.12, 0, Math.PI * 2);
+          ctx.fill();
+        } else {
+          // ✨ 5. Ngôi sao vàng lấp lánh (Golden sparkle)
+          ctx.fillStyle = '#FDE047';
+          const r1 = this.size * 0.65;
+          const r2 = this.size * 0.18;
+          ctx.beginPath();
+          for (let i = 0; i < 8; i++) {
+            const r = i % 2 === 0 ? r1 : r2;
+            const angle = (i * Math.PI) / 4;
+            const px = Math.cos(angle) * r;
+            const py = Math.sin(angle) * r;
+            if (i === 0) ctx.moveTo(px, py);
+            else ctx.lineTo(px, py);
+          }
+          ctx.closePath();
+          ctx.fill();
+        }
+
         ctx.restore();
       }
     }
 
-    for (let i = 0; i < numPetals; i++) {
-      petals.push(new Petal());
+    function initParticles() {
+      particles.length = 0;
+      const count = getTargetParticleCount();
+      for (let i = 0; i < count; i++) {
+        particles.push(new FloraParticle());
+      }
     }
+    initParticles();
+
+    window.addEventListener('resize', () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+      const target = getTargetParticleCount();
+      while (particles.length < target) particles.push(new FloraParticle());
+      while (particles.length > target) particles.pop();
+    });
 
     function animatePetals() {
       ctx.clearRect(0, 0, width, height);
-      petals.forEach(p => {
-        p.update();
-        p.draw();
-      });
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+      }
       requestAnimationFrame(animatePetals);
     }
     animatePetals();
